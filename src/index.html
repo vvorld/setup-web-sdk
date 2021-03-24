@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <title></title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+      <div class="container-fluid">
+          <div class="row justify-content-around mt-2">
+              <p><a class="btn btn-secondary ml-2 mr-2" data-toggle="collapse" href="#flowCollapse" role="button" aria-expanded="false" aria-controls="flowCollapse">Change config</a></p>
+          </div>
+          <div class="row">
+              <div class="col-12">
+                  <div class="collapse collapse" id="flowCollapse">
+                      <form id="form-setting">
+                          <div class="row mb-2">
+                              <div class="col"><label class="form-check-label ml-2" for="apiUrl">API URL</label><input class="form-control" id="apiUrl" type="text" placeholder="apiUrl" name="apiUrl" value="https://ar.dev.getid.dev"></div>
+                              <div class="col"><label class="form-check-label ml-2" for="sdkKey">SDK KEY</label><input class="form-control" id="sdkKey" type="text" placeholder="sdkKey" name="sdkKey" value=""></div>
+                              <div class="col"><label class="form-check-label ml-2" for="flowName">Flow name</label><input class="form-control" id="flowName" type="text" placeholder="flowName" name="flowName" value="sdk-v6"></div>
+                              <div class="col"><label class="form-check-label ml-2" for="sdkVersion">sdk script version</label><input class="form-control" id="sdkVersion" type="text" placeholder="sdkVersion" name="sdkVersion" value="v6">
+                                  <div class="invalid-feedback">Can not load the script</div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-6">
+                                  <div class="card card-body">
+                                      <div class="row">
+                                          <div class="col-6">
+                                              <div class="form-check form-check-inline"><input class="form-check-input" id="mode" type="checkbox" name="mode" value="popup"><label class="form-check-label lb-sm" for="mode">isPopup</label></div>
+                                          </div>
+                                          <div class="col-6">
+                                              <div class="form-check form-check-inline"><input class="form-check-input" id="onComplete" type="checkbox" name="onComplete" value="true" checked><label class="form-check-label" for="onComplete">onComplete</label></div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-6">
+                                              <div class="form-check form-check-inline"><input class="form-check-input" id="onFail" type="checkbox" name="onFail" value="true" checked><label class="form-check-label" for="onFail">onFail</label></div>
+                                          </div>
+                                          <div class="col-6">
+                                              <div class="form-check form-check-inline"><input class="form-check-input" id="onVerificationComplete" type="checkbox" name="onVerificationComplete" value="true"><label class="form-check-label" for="onVerificationComplete">onVerificationComplete</label></div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-12 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="customerId" type="text" name="customerId" value=""><label class="form-check-label ml-2" for="customerId">CustomerId</label></div>
+                                          </div>
+                                          <div class="col-12 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="locale" type="text" name="locale" value=""><label class="form-check-label ml-2" for="locale">Locale</label></div>
+                                          </div>
+                                          <div class="col-6 mt-2">
+                                              <div class="button-group"><button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown"><span>supported countries</span></button>
+                                                  <ul class="dropdown-menu checkbox-menu allow-focus">
+                                                      <li class="ml-2"><input id="supportedCountry_rus" type="checkbox" name="supportedCountry_rus" value="true"><label for="supportedCountry_rus">&nbsp; RUS</label></li>
+                                                      <li class="ml-2"><input id="supportedCountry_ukr" type="checkbox" name="supportedCountry_ukr" value="true"><label for="supportedCountry_ukr">&nbsp; UKR</label></li>
+                                                      <li class="ml-2"><input id="supportedCountry_pol" type="checkbox" name="supportedCountry_pol" value="true"><label for="supportedCountry_pol">&nbsp; POL</label></li>
+                                                      <li class="ml-2"><input id="supportedCountry_mda" type="checkbox" name="supportedCountry_mda" value="true"><label for="supportedCountry_mda">&nbsp; MDA</label></li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                          <div class="col-6 mt-2">
+                                              <div class="button-group"><button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown"><span>supported documents</span></button>
+                                                  <ul class="dropdown-menu checkbox-menu allow-focus">
+                                                      <li class="ml-2"><input id="supportedDocs_idCard" type="checkbox" name="supportedDocs_idCard" value="true"><label for="supportedDocs_idCard">&nbsp; ID-CARD</label></li>
+                                                      <li class="ml-2"><input id="supportedDocs_driverLicense" type="checkbox" name="supportedDocs_driverLicense" value="true"><label for="supportedDocs_driverLicense">&nbsp; DRIVER-LICENSE</label></li>
+                                                      <li class="ml-2"><input id="supportedDocs_passport" type="checkbox" name="supportedDocs_passport" value="true"><label for="supportedDocs_passport">&nbsp; PASSPORT</label></li>
+                                                  </ul>
+                                              </div>
+                                          </div>
+                                          <div class="col-12 mt-2">
+                                              <div class="card card-body">
+                                                  <div class="row d-flex justify-content-center mb-4"><span>metadata</span></div>
+                                                  <div class="row d-flex justify-content-center mb-4">
+                                                      <div class="col-8">
+                                                          <div class="form-check form-check-inline"><input class="form-control" id="externalId" type="text" name="externalId" value=""><label class="form-check-label ml-2" for="externalId">externalId</label></div>
+                                                      </div>
+                                                      <div class="col-5">
+                                                          <div class="form-check form-check-inline"><input class="form-control" id="labelKey" type="text" name="labelKey" value=""><label class="form-check-label ml-2" for="externalId">label key</label></div>
+                                                      </div>
+                                                      <div class="col-5">
+                                                          <div class="form-check form-check-inline"><input class="form-control" id="labelValue" type="text" name="labelValue" value=""><label class="form-check-label ml-2" for="externalId">label value</label></div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-6">
+                                  <div class="card card-body">
+                                      <div class="row d-flex justify-content-around">
+                                          <div class="form-check form-check-inline"><label class="form-check-label mr-2 font-weight-bold" for="profile">pre-fill profile</label><input class="form-check-input ml-2" id="profile" type="checkbox" name="profile" value="true" checked></div>
+                                      </div>
+                                      <div class="row mt-4 d-flex justify-content-around">
+                                          <div class="col mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="firstName" type="text" placeholder="firstName" name="profile_First name" value="Jow"></div>
+                                          </div>
+                                          <div class="col mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="lastName" type="text" placeholder="lastName" name="profile_Last name" value="Dow"></div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-6 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="email" type="text" placeholder="email" name="profile_Email" value=""></div>
+                                          </div>
+                                          <div class="col-6 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="dob" type="text" placeholder="dob" name="profile_Date of birth" value=""></div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-6 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="address" type="text" placeholder="address" name="profile_Address" value=""></div>
+                                          </div>
+                                          <div class="col-6 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="dateOfExpire" type="text" placeholder="dateOfExpire" name="profile_Date of expiry" value=""></div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-6 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="dateOfIssue" type="text" placeholder="dateOfIssue" name="profile_Date of issue" value=""></div>
+                                          </div>
+                                          <div class="col-6 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="documentNumber" type="text" placeholder="documentNumber" name="profile_Document number" value=""></div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-6 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="gender" type="text" placeholder="gender" name="profile_Gender" value=""></div>
+                                          </div>
+                                          <div class="col-6 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="nationality" type="text" placeholder="nationality" name="profile_Nationality" value=""></div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-6 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="personalNumber" type="text" placeholder="personalNumber" name="profile_Personal number" value=""></div>
+                                          </div>
+                                          <div class="col-6 mt-2">
+                                              <div class="form-check form-check-inline"><input class="form-control" id="anyCustomCategory" type="text" placeholder="anyCustomCategory" name="profile_AnyCustomCategory" value=""></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row mb-4">
+                              <div class="col-4 mx-auto mt-3"><button class="btn mr-2 btn-info btn-lg btn-block" type="submit">Apply</button></div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="getid-component"></div>
+  </body>
+
+</html>
