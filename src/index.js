@@ -85,7 +85,7 @@ const configKeys = new Set([
 ]);
 const loadSdkScript = (sdkVersion, cb) => {
   const script = document.createElement('script');
-  script.src = `http://cdn.getid.cloud/sdk/getid-web-sdk-${sdkVersion}.min.js`;
+  script.src = `https://cdn.getid.cloud/sdk/getid-web-sdk-${sdkVersion}.min.js`;
   script.onerror = (err) => {
     console.error(err);
     document.querySelector('#sdkVersion').classList.add('is-invalid');
