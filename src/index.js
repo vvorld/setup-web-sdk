@@ -2,7 +2,7 @@ const defaultOptions = {
   metadata: {},
   containerId: 'getid-component',
   profile: [],
-  apiUrl: 'https://ar.dev.getid.dev',
+  apiUrl: '',
   sdkKey: '',
   flowName: 'sdk-v6',
 };
