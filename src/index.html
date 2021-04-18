@@ -10,7 +10,239 @@
   </head>
 
   <body>
-      <div class="container-fluid">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-v6-configuration-tab" data-toggle="tab" href="#nav-v6-configuration" role="tab" aria-controls="nav-v6-configuration" aria-selected="true">v6-configuration</a>
+          <a class="nav-item nav-link" id="nav-v5-configuration-tab" data-toggle="tab" href="#nav-v5-configuration" role="tab" aria-controls="nav-v5-configuration" aria-selected="false">v5-configuration</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade" id="nav-v5-configuration" role="tabpanel" aria-labelledby="nav-v5-configuration-tab">
+            <div class="container-fluid">
+                <div class="row justify-content-around mt-2">
+                  <p>
+                    <a
+                      class="btn btn-secondary ml-2 mr-2"
+                      data-toggle="collapse"
+                      href="#flowCollapse"
+                      role="button"
+                      aria-expanded="true"
+                      aria-controls="flowCollapse"
+                      >Change config</a
+                    >
+                  </p>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="collapse show" id="flowCollapse">
+                      <form action="/4/config" method="POST">
+                        <div class="row mb-2">
+                            <div class="col"><label class="form-check-label ml-2" for="apiUrl">API URL</label><input class="form-control" id="apiUrlV5" type="text" placeholder="apiUrl" name="apiUrl" value=""></div>
+                            <div class="col"><label class="form-check-label ml-2" for="sdkKey">SDK KEY</label><input class="form-control" id="sdkKeyV5" type="text" placeholder="sdkKey" name="sdkKey" value=""></div>
+                            <div class="col"><label class="form-check-label ml-2" for="sdkVersion">sdk script version</label><input class="form-control" id="sdkVersionV5" type="text" placeholder="sdkVersion" name="sdkVersion" value="v5">
+                                <div class="invalid-feedback">Can not load the script</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="card card-body">
+                              <div class="row">
+                                <div class="col-6">
+                                    <div class="form-check form-check-inline">
+                                      <input
+                                        class="form-check-input"
+                                        id="Consent"
+                                        type="checkbox"
+                                        name="flows"
+                                        value="Consent"
+                                      /><label class="form-check-label lb-sm" for="Consent">Consent</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check form-check-inline">
+                                      <input
+                                        class="form-check-input"
+                                        id="Consent"
+                                        type="checkbox"
+                                        name="flows"
+                                        value="Consent"
+                                      /><label class="form-check-label lb-sm" for="Consent">Consent</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      id="Form"
+                                      type="checkbox"
+                                      name="flows"
+                                      value="Form"
+                                      checked=""
+                                    /><label class="form-check-label" for="Form">Form</label>
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      id="selfie"
+                                      type="checkbox"
+                                      name="flows"
+                                      value="selfie"
+                                    /><label class="form-check-label" for="selfie"
+                                      >selfie</label
+                                    >
+                                  </div>
+                              </div>
+
+                              <div class="col-6">
+                                <div class="form-check form-check-inline">
+                                  <input
+                                    class="form-check-input"
+                                    id="DocumentPhoto"
+                                    type="checkbox"
+                                    name="flows"
+                                    value="DocumentPhoto"
+                                  /><label class="form-check-label lb-sm" for="DocumentPhoto">DocumentPhoto</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check form-check-inline">
+                                  <input
+                                    class="form-check-input"
+                                    id="Liveness"
+                                    type="checkbox"
+                                    name="flows"
+                                    value="Liveness"
+                                  /><label class="form-check-label lb-sm" for="Liveness">Liveness</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check form-check-inline">
+                                  <input
+                                    class="form-check-input"
+                                    id="onComplete"
+                                    type="checkbox"
+                                    name="flows"
+                                    value="onComplete"
+                                  /><label class="form-check-label lb-sm" for="onComplete">onComplete</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check form-check-inline">
+                                  <input
+                                    class="form-check-input"
+                                    id="onFail"
+                                    type="checkbox"
+                                    name="flows"
+                                    value="onFail"
+                                  /><label class="form-check-label lb-sm" for="onFail">onFail</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check form-check-inline">
+                                  <input
+                                    class="form-check-input"
+                                    id="onSortDocuments"
+                                    type="checkbox"
+                                    name="flows"
+                                    value="onSortDocuments"
+                                  /><label class="form-check-label lb-sm" for="onSortDocuments">onSortDocuments</label>
+                                </div>
+                            </div>
+                                <div class="col-6">
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      id="ThankYou"
+                                      type="checkbox"
+                                      name="flows"
+                                      value="ThankYou"
+                                      checked=""
+                                    /><label class="form-check-label" for="ThankYou"
+                                      >ThankYou</label
+                                    >
+                                </div>
+                              </div>
+                              </div>
+                              <div class="row"><div class="col-6 ml-auto mt-2"></div></div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="card card-body">
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      id="firstName"
+                                      type="checkbox"
+                                      name="fields"
+                                      value="First name"
+                                      checked=""
+                                    /><label class="form-check-label lb-sm" for="firstName"
+                                      >First Name</label
+                                    >
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      id="lastName"
+                                      type="checkbox"
+                                      name="fields"
+                                      value="Last name"
+                                      checked=""
+                                    /><label class="form-check-label" for="lastName"
+                                      >Last Name</label
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-6">
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      id="email"
+                                      type="checkbox"
+                                      name="fields"
+                                      value="Email"
+                                    /><label class="form-check-label" for="email"
+                                      >Email</label
+                                    >
+                                  </div>
+                                </div>
+                                <div class="col-6">
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      id="dob"
+                                      type="checkbox"
+                                      name="fields"
+                                      value="Date of birth"
+                                    /><label class="form-check-label" for="dob">DOB</label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-4 mx-auto mt-3">
+                            <button class="btn mr-2 btn-info btn-lg btn-block" type="submit">
+                              Apply
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <div class=" container-fluid tab-pane fade show active" id="nav-v6-configuration" role="tabpanel" aria-labelledby="nav-v6-configuration-tab">
           <div class="row justify-content-around mt-2">
               <p><a class="btn btn-secondary ml-2 mr-2" data-toggle="collapse" href="#flowCollapse" role="button" aria-expanded="false" aria-controls="flowCollapse">Change config</a></p>
           </div>
@@ -154,7 +386,9 @@
               </div>
           </div>
       </div>
+    </div>
       <div id="getid-component"></div>
+
   </body>
 
 </html>
