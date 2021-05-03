@@ -126,6 +126,15 @@ const enrichBySpecialKey = {
     checked ? { ...config, onVerificationComplete: defaultCallbacks.onVerificationComplete }
       : config
   ),
+  themeModeLight: (config, { checked }) => (
+    checked ? { ...config, themeMode: 'light' } : config
+  ),
+  themeModeDark: (config, { checked }) => (
+    checked ? { ...config, themeMode: 'dark' } : config
+  ),
+  themeMode: (config, { checked }) => (
+    checked ? { ...config, themeMode: undefined } : config
+  ),
 };
 const getMetadataFromForm = (formNodes) => {
   const externalId = formNodes.find(({ id }) => id === 'externalId');
@@ -176,7 +185,14 @@ const loadSdkScript = (sdkVersion, cb) => {
   document.body.appendChild(script);
   script.onload = () => {
     document.querySelector('#sdkVersion').classList.remove('is-invalid');
-    cb().catch(console.error);
+    cb().then((res) => {
+      if (res?.changeThemeMode) {
+        const switchTheme = document.getElementById('switch-theme');
+        switchTheme.addEventListener('change', ({ target }) => {
+          res.changeThemeMode(target.checked ? 'dark' : 'light');
+        });
+      }
+    }).catch(console.error);
   };
 };
 document.querySelector('#form-setting').addEventListener('submit', (event) => {
