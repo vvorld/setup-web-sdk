@@ -85,6 +85,9 @@ const defaultCallbacks = {
   onComplete(dataOnComplete) {
     console.log('onComplete', dataOnComplete);
   },
+  onBack() {
+    console.log('onBack');
+  },
   onFail(error) {
     console.log('onFail', error);
   },
@@ -124,6 +127,10 @@ const enrichBySpecialKey = {
   ),
   onVerificationComplete: (config, { checked }) => (
     checked ? { ...config, onVerificationComplete: defaultCallbacks.onVerificationComplete }
+      : config
+  ),
+  onBack: (config, { checked }) => (
+    checked ? { ...config, onBack: defaultCallbacks.onBack }
       : config
   ),
   themeModeLight: (config, { checked }) => (
