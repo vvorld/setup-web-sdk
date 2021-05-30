@@ -142,6 +142,8 @@ const enrichBySpecialKey = {
   themeMode: (config, { checked }) => (
     checked ? { ...config, themeMode: undefined } : config
   ),
+  htmlProperties: (config, { checked }) => (
+    { ...config, htmlProperties: { disableSwitchDevice: checked } }),
 };
 const getMetadataFromForm = (formNodes) => {
   const externalId = formNodes.find(({ id }) => id === 'externalId');
