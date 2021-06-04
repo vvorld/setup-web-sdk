@@ -88,6 +88,9 @@ const defaultCallbacks = {
   onBack() {
     console.log('onBack');
   },
+  onFatalError(errorCode) {
+    alert('onFatalError', errorCode);
+  },
   onFail(error) {
     console.log('onFail', error);
   },
@@ -124,6 +127,9 @@ const enrichBySpecialKey = {
   ),
   onFail: (config, { checked }) => (
     checked ? { ...config, onFail: defaultCallbacks.onFail } : config
+  ),
+  onFatalError: (config, { checked }) => (
+    checked ? { ...config, onFatalError: defaultCallbacks.onFatalError } : config
   ),
   onVerificationComplete: (config, { checked }) => (
     checked ? { ...config, onVerificationComplete: defaultCallbacks.onVerificationComplete }
